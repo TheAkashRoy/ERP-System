@@ -1,10 +1,12 @@
 // src/components/LoginForm.js
 import React, { useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
-
+import { Navigate } from "react-router-dom";
+import Teacher from "./Teacher";
 const LoginForm = () => {
   const { username, setUsername, token, setToken } = useGlobalContext();
- // const [inputUsername, setInputUsername] = useState("");
+
+  //const history = useHistory();
  const [inputPassword, setInputPassword] = useState("");
   const [error, setError] = useState("");
   const [isLogin, setIsLogin] = useState(true);
@@ -27,6 +29,7 @@ const LoginForm = () => {
         // setToken(data.token);
         // setUsername(inputUsername);
         setError("");
+        <Navigate to="/teacher" replace={true} />
       } else {
         setError("Login failed. Please check your username.");
       }
@@ -60,58 +63,99 @@ const LoginForm = () => {
     }
   };
   return (
+    <div className="flex flex-row gap-2 ">
+    <div></div>
     <div>
-        <form className="flex flex-col gap-3  w-76">
+    <button onClick={() => setIsLogin(!isLogin)}>
+    {isLogin ? "Register" : "Login"}
+  </button>
+  {isLogin ? (
+    <form className="">
       <input
         type="text"
         placeholder="Enter your username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <input
-        type="password"
-        placeholder="Enter your password"
-        value={inputPassword}
-        onChange={(e) => setInputPassword(e.target.value)}
-      /><br/>
-      <label>
-        Designation:
-        <select value={designation} onChange={(e) => setDesignation(e.target.value)}>
-          <option value="Teacher">Teacher</option>
-          <option value="Student">Student</option>
-        </select>
-      </label>
-      <button type="submit" onClick={(e)=>{handleRegister(e)}}>Register</button>
-    </form>
-      <br/>
-      <h1>OR</h1>
-      <br/>
-      <form className="flex flex-col gap-4 w-80 m-10">
-      <input
-        type="text"
-        placeholder="Enter your username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br/>
+      <br />
       <input
         type="password"
         placeholder="Enter your password"
         value={inputPassword}
         onChange={(e) => setInputPassword(e.target.value)}
       />
-      <br/>
+      <br />
       <label>
         Designation:
-        <select value={designation} onChange={(e) => setDesignation(e.target.value)}>
-          <option value="Teacher">Teacher</option>
-          <option value="Student">Student</option>
-        </select>
-      </label>
-      <button type="submit" onClick={(e)=>{handleLogin(e)}}>Login</button>
+        <input
+  type="radio"
+  id="teacher"
+  name="designation"
+  value="Teacher"
+  checked={designation === "Teacher"}
+  onChange={() => setDesignation("Teacher")}
+/>
+<label htmlFor="teacher">Teacher</label>
 
+<input
+  type="radio"
+  id="student"
+  name="designation"
+  value="Student"
+  checked={designation === "Student"}
+  onChange={() => setDesignation("Student")}
+/>
+<label htmlFor="student">Student</label>
+
+      </label>
+      <button type="submit" onClick={handleLogin}>
+        Login
+      </button>
     </form>
-    
+  ) : (
+    <form className="">
+      <input
+        type="text"
+        placeholder="Enter your username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Enter your password"
+        value={inputPassword}
+        onChange={(e) => setInputPassword(e.target.value)}
+      />
+      <br />
+      <label>
+        Designation:
+        <input
+  type="radio"
+  id="teacher"
+  name="designation"
+  value="Teacher"
+  checked={designation === "Teacher"}
+  onChange={() => setDesignation("Teacher")}
+/>
+<label htmlFor="teacher">Teacher</label>
+
+<input
+  type="radio"
+  id="student"
+  name="designation"
+  value="Student"
+  checked={designation === "Student"}
+  onChange={() => setDesignation("Student")}
+/>
+<label htmlFor="student">Student</label>
+
+      </label>
+      <button type="submit" onClick={handleRegister}>
+        Register
+      </button>
+    </form>
+  )}
+  </div>
     </div>
   );
 };

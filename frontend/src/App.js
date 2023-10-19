@@ -1,13 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home'
+import {Routes,Route} from "react-router-dom"
+import Teacher from './components/Teacher';
 function App() {
   return (
     <>
-    <h1 className="text-3xl font-bold underline text-cyan-800">
-          Hello world!
-        </h1>
-    <Home/>
+    
+   <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/teacher" element={<Teacher/>}/>
+      </Routes>
+
     </>
         
 
