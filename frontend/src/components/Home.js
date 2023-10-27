@@ -1,8 +1,9 @@
 // src/components/LoginForm.js
 import React, { useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Teacher from "./Teacher";
+import login from "../assets/Login.jpg";
 const LoginForm = () => {
   const { username, setUsername, token, setToken } = useGlobalContext();
 
@@ -11,9 +12,11 @@ const LoginForm = () => {
   const [error, setError] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [designation, setDesignation] = useState("");
+  const navigate = useNavigate();
+
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("inside handleRegister");
+    //console.log("inside handleRegister");
     try {
       const response = await fetch("https://erpsystembe.akashroy24.repl.co/register", {
         method: "POST",
@@ -29,7 +32,7 @@ const LoginForm = () => {
         // setToken(data.token);
         // setUsername(inputUsername);
         setError("");
-        <Navigate to="/teacher" replace={true} />
+        navigate("/teacher");
       } else {
         setError("Login failed. Please check your username.");
       }
@@ -39,7 +42,7 @@ const LoginForm = () => {
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("inside handleRegister");
+    //console.log("inside handleRegister");
     try {
       const response = await fetch("https://erpsystembe.akashroy24.repl.co/login", {
         method: "POST",
@@ -63,30 +66,35 @@ const LoginForm = () => {
     }
   };
   return (
-    <div className="flex flex-row gap-2 ">
-    <div></div>
-    <div>
-    <button onClick={() => setIsLogin(!isLogin)}>
-    {isLogin ? "Register" : "Login"}
-  </button>
+    <div className="flex flex-col lg:flex-row gap-2 justify-center items-center m-10 lg:m-20">
+    <div className="w-[55%] lg:w-[40%]">
+    <img src={login}></img>
+    </div>
+    <div className="shadow-md border-2 rounded-xl p-6 w-[80%] lg:w-[48%]">
+    
   {isLogin ? (
-    <form className="">
+    <form className="flex flex-col gap-3">
+      <label>
+        Username
+        <br/>
       <input
         type="text"
         placeholder="Enter your username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <br />
+      </label>
+      <label>
+      Password <br/>
       <input
         type="password"
         placeholder="Enter your password"
         value={inputPassword}
         onChange={(e) => setInputPassword(e.target.value)}
       />
-      <br />
+      </label>
       <label>
-        Designation:
+        Designation<br/>
         <input
   type="radio"
   id="teacher"
@@ -111,21 +119,28 @@ const LoginForm = () => {
       <button type="submit" onClick={handleLogin}>
         Login
       </button>
+      <button onClick={() => setIsLogin(!isLogin)} className="p-2 text-white bg-blue-700 rounded-xl">
+    {isLogin ? "Register" : "Login"}
+  </button>
     </form>
   ) : (
-    <form className="">
+    <form className="flex flex-col gap-1">
+    <label>
+    Username <br/>
       <input
         type="text"
         placeholder="Enter your username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-      />
+      /></label>
+      <label>
+      Password <br/>
       <input
         type="password"
         placeholder="Enter your password"
         value={inputPassword}
         onChange={(e) => setInputPassword(e.target.value)}
-      />
+      /></label>
       <br />
       <label>
         Designation:
@@ -153,6 +168,9 @@ const LoginForm = () => {
       <button type="submit" onClick={handleRegister}>
         Register
       </button>
+      <button onClick={() => setIsLogin(!isLogin)} className="p-2 text-white bg-blue-700 rounded-lg">
+    {isLogin ? "Register" : "Login"}
+  </button>
     </form>
   )}
   </div>
