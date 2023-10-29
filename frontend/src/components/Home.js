@@ -30,9 +30,8 @@ const LoginForm = () => {
         const data = await response.json();
         console.log("data from response",data);
         // setToken(data.token);
-        // setUsername(inputUsername);
+         setUsername(username);
         setError("");
-        navigate("/teacher");
       } else {
         setError("Login failed. Please check your username.");
       }
@@ -55,9 +54,13 @@ const LoginForm = () => {
       if (response.ok) {
         const data = await response.json();
         console.log("data from response",data);
-        // setToken(data.token);
-        // setUsername(inputUsername);
+         setToken(data.token);
+         //setUsername(username);
         setError("");
+        if(token){
+          navigate("/teacher");
+        }
+
       } else {
         setError("Login failed. Please check your username.");
       }
@@ -70,11 +73,11 @@ const LoginForm = () => {
     <div className="w-[55%] lg:w-[40%]">
     <img src={login}></img>
     </div>
-    <div className="shadow-md border-2 rounded-xl p-6 w-[80%] lg:w-[48%]">
+    <div className="shadow-md border-2 rounded-xl p-6 w-[80%] lg:w-[39%]">
     
   {isLogin ? (
     <form className="flex flex-col gap-3">
-      <label>
+      <label className="font-semibold text-lg">
         Username
         <br/>
       <input
@@ -82,67 +85,20 @@ const LoginForm = () => {
         placeholder="Enter your username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        className="border-2 border-blue-900 rounded-lg p-2 w-[90%]"
       />
       </label>
-      <label>
+      <label className="font-semibold text-lg"> 
       Password <br/>
       <input
         type="password"
         placeholder="Enter your password"
         value={inputPassword}
         onChange={(e) => setInputPassword(e.target.value)}
+        className="border-2 border-blue-900 rounded-lg p-2 w-[90%]"
       />
       </label>
-      <label>
-        Designation<br/>
-        <input
-  type="radio"
-  id="teacher"
-  name="designation"
-  value="Teacher"
-  checked={designation === "Teacher"}
-  onChange={() => setDesignation("Teacher")}
-/>
-<label htmlFor="teacher">Teacher</label>
-
-<input
-  type="radio"
-  id="student"
-  name="designation"
-  value="Student"
-  checked={designation === "Student"}
-  onChange={() => setDesignation("Student")}
-/>
-<label htmlFor="student">Student</label>
-
-      </label>
-      <button type="submit" onClick={handleLogin}>
-        Login
-      </button>
-      <button onClick={() => setIsLogin(!isLogin)} className="p-2 text-white bg-blue-700 rounded-xl">
-    {isLogin ? "Register" : "Login"}
-  </button>
-    </form>
-  ) : (
-    <form className="flex flex-col gap-1">
-    <label>
-    Username <br/>
-      <input
-        type="text"
-        placeholder="Enter your username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      /></label>
-      <label>
-      Password <br/>
-      <input
-        type="password"
-        placeholder="Enter your password"
-        value={inputPassword}
-        onChange={(e) => setInputPassword(e.target.value)}
-      /></label>
-      <br />
-      <label>
+      <label className="font-semibold text-lg">
         Designation:
         <input
   type="radio"
@@ -165,14 +121,66 @@ const LoginForm = () => {
 <label htmlFor="student">Student</label>
 
       </label>
-      <button type="submit" onClick={handleRegister}>
+      <button type="submit" onClick={handleLogin} className="p-2 text-white bg-blue-700 rounded-xl w-[80%] shadow-lg font-semibold mb-5">
+        Login
+      </button>
+      
+    </form>
+  ) : (
+    <form className="flex flex-col gap-1">
+    <label className="font-semibold text-lg">
+    Username 
+      <input
+        type="text"
+        placeholder="Enter your username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        className="border-2 border-blue-900 rounded-lg p-2 w-[90%]"
+
+      /></label>
+      <label className="font-semibold text-lg">
+      Password <br/>
+      <input
+        type="password"
+        placeholder="Enter your password"
+        value={inputPassword}
+        onChange={(e) => setInputPassword(e.target.value)}
+        className="border-2 border-blue-900 rounded-lg p-2 w-[90%]"
+
+      /></label>
+      <br />
+      <label className="font-semibold text-lg">
+        Designation:<br/>
+        <input
+  type="radio"
+  id="teacher"
+  name="designation"
+  value="Teacher"
+  checked={designation === "Teacher"}
+  onChange={() => setDesignation("Teacher")}
+/>
+<label htmlFor="teacher">Teacher</label>
+
+<input
+  type="radio"
+  id="student"
+  name="designation"
+  value="Student"
+  checked={designation === "Student"}
+  onChange={() => setDesignation("Student")}
+/>
+<label htmlFor="student">Student</label>
+
+      </label>
+      <button type="submit" onClick={handleRegister} className="p-2 text-white bg-blue-700 rounded-xl w-[80%] shadow-lg font-semibold mb-5">
         Register
       </button>
-      <button onClick={() => setIsLogin(!isLogin)} className="p-2 text-white bg-blue-700 rounded-lg">
-    {isLogin ? "Register" : "Login"}
-  </button>
     </form>
   )}
+  <p className="mb-2 ">{isLogin ? "If not registered,register below " : "If registered login below"}</p>
+  <button onClick={() => setIsLogin(!isLogin)} className="p-2 text-blue-700 border-2 border-blue-700 font-semibold w-[80%] rounded-xl shadow-lg">
+    {isLogin ? "Register" : "Login"}
+  </button> 
   </div>
     </div>
   );

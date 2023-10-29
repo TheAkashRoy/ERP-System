@@ -1,9 +1,11 @@
 import React from 'react'
-
+import { useGlobalContext } from "../context/GlobalContext";
 function Teacher() {
+  const { username, setUsername, token, setToken } = useGlobalContext();
   return (
     <div>
-      <h1>I am not follower I am a leader</h1>
+    <h1>Username: {username}</h1>
+    <h2> Helloooooo</h2>
     </div>
   )
 }
