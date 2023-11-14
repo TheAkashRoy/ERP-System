@@ -5,11 +5,10 @@ const QuestionForm = () => {
     subject: '',
     setNo: '',
     questions: [
-      { question: '', options: Array(4).fill('') },
-      { question: '', options: Array(4).fill('') },
-      { question: '', options: Array(4).fill('') },
-      { question: '', options: Array(4).fill('') },
-      { question: '', options: Array(4).fill('') },
+      { question: '', options: Array(2).fill('') },
+      { question: '', options: Array(2).fill('') },
+      { question: '', options: Array(2).fill('') },
+     
     ],
   });
 
