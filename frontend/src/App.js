@@ -1,21 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import Home from './components/Home'
 import {Routes,Route} from "react-router-dom"
-import Teacher from './components/Teacher';
-import Question from './components/Question';
+import QuestionForm from './components/Question'
+import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
 function App() {
   return (
     <>
     
-   <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/teacher" element={<Teacher/>}/>
-      <Route path="/update-question" element={<Question/>}/>
-      </Routes>
-
-    </>
-        
+    <Routes>
+       <Route path="/" element={<Home/>}/>
+       <Route path="/teacher" element={<Dashboard/>}/>
+       <Route path="/update-question" element={<QuestionForm/>}/>
+       </Routes>
+ 
+     </>
+         
 
       
   );

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useNavigate } from "react-router-dom";
-import Teacher from "./Teacher";
 import login from "../assets/Login.jpg";
 const LoginForm = () => {
   const { username, setUsername, token, setToken } = useGlobalContext();

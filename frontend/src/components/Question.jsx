@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Sidebar from './Sidebar';
 const QuestionForm = () => {
   const [formData, setFormData] = useState({
     subject: '',
@@ -11,6 +11,7 @@ const QuestionForm = () => {
      
     ],
   });
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,14 +32,36 @@ const QuestionForm = () => {
     setFormData({ ...formData, questions: updatedQuestions });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // You can handle the submission of the form data here, e.g., send it to a server.
     console.log('Form data:', formData);
+    try {
+      const response = await fetch("https://erpsystembe.akashroy24.repl.co/insertQS", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("data from response",data);
+        setError("");
+
+      } else {
+        setError("Data could not be submitted.");
+      }
+    } catch (error) {
+      setError("An error occurred while logging in.");
+    }
   };
 
   return (
-    <div className='flex flex-col gap-2 items-start justify-start bg-blue-400 p-10'>
+    <div className='flex flex-row -gap-1'> 
+          <Sidebar/>
+    <div className='flex flex-col gap-2 items-start justify-start bg-blue-400 p-10 w-full'>
       <form
         onSubmit={handleSubmit}
         className='shadow-lg rounded-xl bg-gray-100 w-[92%] p-10 font-semibold'
@@ -101,6 +124,7 @@ const QuestionForm = () => {
           Submit
         </button>
       </form>
+    </div>
     </div>
   );
 };
