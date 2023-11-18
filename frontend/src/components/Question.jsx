@@ -59,9 +59,9 @@ const QuestionForm = () => {
   };
 
   return (
-    <div className='flex flex-row -gap-1'> 
+    <div className='flex flex-row '> 
           <Sidebar/>
-    <div className='flex flex-col gap-2 items-start justify-start bg-blue-400 p-10 w-full'>
+    <div className='flex flex-col gap-2 items-start justify-start bg-blue-400 p-10 w-full '>
       <form
         onSubmit={handleSubmit}
         className='shadow-lg rounded-xl bg-gray-100 w-[92%] p-10 font-semibold'

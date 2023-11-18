@@ -2,7 +2,7 @@ import React from 'react'
 
 function RoutineBox({subject,time,code,period}) {
   return (
-    <div className='border-2 border-blue-900 w-80 p-2 m-5'>
+    <div className='border-2 border-blue-900 w-80 p-4 m-5'>
       <div className='flex flex-row justify-between '>
       <div>{subject}</div>
       <div>{time}</div>

@@ -5,22 +5,23 @@ import { AiOutlineSchedule } from "react-icons/ai";
 import {Link} from "react-router-dom";
 function Sidebar() {
   return (
-    <div className=" flex w-[20%] flex-col p-2 bg-slate-700 text-white gap-20 items-center lg:w-[20%]">
-      <div className="p-3 flex flex-col items-center gap-5 text-lg md:text-2xl">
-        <BsPersonCircle className="text-7xl" />
-        <h1>Name</h1>
+    <div className=" flex flex-col p-6  h-screen bg-white  w-32  lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200 border-r-2 border-[#DBDBDB] ">
+      <div className="flex flex-col justify-center items-center gap-3 text-lg md:text-2xl mt-20">
+        <BsPersonCircle className="text-7xl text-[#787486]" />
+        <h1 className='text-center'>Professor name</h1>
       </div>
-      <div className="p-4">
+      <div className="p-4 mt-10 flex flex-col gap-3">
         <ul className="space-y-3 hover:cursor-pointer items-center">
-          <li className="p-2 rounded-md hover:bg-red-400 flex gap-2 text-sm items-center md:text-lg border-b-2">
+          <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center justify-center">
             <BsPerson className="text-xl md:text-xl" />
             Profile
           </li>
-    <Link to="/update-question">      <li className="p-2 rounded-md hover:bg-red-400 flex gap-2 text-sm items-center md:text-lg border-b-2">
+    <Link to="/update-question">      
+    <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center justify-center">
             <FiEdit className="text-xl md:text-lg" />
-            Update Question Bank
+             Question Bank
           </li></Link>
-          <li className="p-2 rounded-md hover:bg-red-400 flex gap-2 text-sm items-center md:text-lg border-b-2">
+          <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center justify-center">
             <AiOutlineSchedule className="text-xl md:text-lg" />
             Full Routine
           </li>
