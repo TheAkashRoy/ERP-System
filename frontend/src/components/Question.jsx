@@ -79,7 +79,7 @@ const QuestionForm = () => {
           />
         </div>
         <div className='flex flex-col gap-3 mt-3'>
-          <label>Enter Set Number:</label>
+          <label>Enter Set Name:</label>
           <input
             type="text"
             name="setNo"
