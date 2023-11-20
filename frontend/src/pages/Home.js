@@ -20,6 +20,7 @@ const LoginForm = () => {
       const response = await fetch("https://erpsystembe.akashroy24.repl.co/register", {
         method: "POST",
         body: JSON.stringify({ username: username,password:inputPassword }),
+
         headers: {
           "Content-Type": "application/json",
         },
@@ -31,16 +32,20 @@ const LoginForm = () => {
         // setToken(data.token);
          setUsername(username);
         setError("");
+        location.reload();
       } else {
         setError("Login failed. Please check your username.");
       }
     } catch (error) {
-      setError("An error occurred while logging in.");
+      setError("An error occurred while registering.");
     }
   };
   const handleLogin = async (e) => {
     e.preventDefault();
     //console.log("inside handleRegister");
+    console.log("username",username);
+    console.log("password",inputPassword);
+    console.log("designation",designation);
     try {
       const response = await fetch("https://erpsystembe.akashroy24.repl.co/login", {
         method: "POST",
@@ -56,8 +61,11 @@ const LoginForm = () => {
          setToken(data.token);
          //setUsername(username);
         setError("");
-        if(token){
+        if(token && designation === "Teacher"){
           navigate("/teacher");
+        }
+        else if(token && designation === "Student"){
+          navigate("/student");
         }
 
       } else {
