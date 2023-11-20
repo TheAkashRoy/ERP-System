@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "day": "Monday",
+      "schedules": [
+        {
+          "id": 1,
+          "Subject": "Computer Science",
+          "year": "Third Year",
+          "classTime": "10:00 AM - 12:00 PM"
+        },
+        {
+          "id": 2,
+          "Subject": "Computer Science Pro",
+          "year": "Third Year",
+          "classTime": "01:00 PM - 02:00 PM"
+        },
+        {
+          "id": 3,
+          "Subject": "UnComputer Science",
+          "year": "Third Year",
+          "classTime": "03:00 AM - 04:00 PM"
+        }
+      ]
+    }
+  ]
+  
