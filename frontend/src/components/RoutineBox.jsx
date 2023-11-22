@@ -7,7 +7,7 @@ function RoutineBox({subject,time,year}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [questionSets, setQuestionSets] = useState([]);
   const [selectedSet, setSelectedSet] = useState('');
-
+  const [error, setError] = useState("");
   const openModal = () => {
     setIsModalOpen(true);
     {/*api call to get code*/}
@@ -23,15 +23,47 @@ function RoutineBox({subject,time,year}) {
   }, [isModalOpen]);
   const handleSetSelection = (set) => {
     setSelectedSet(set);
+    
   };
-  function fetchData(){
-    setQuestionSets(['Set 1', 'Set 2', 'Set 3']);
+  console.log("selected set",selectedSet);
+  var data=[];
+  async function fetchData(){
 
+    try {
+      const response = await fetch(`https://erpsystembe.akashroy24.repl.co/questions/${subject}`, {
+        method: "GET",});
+      console.log("Heyaa");
+      if (response.ok) {
+         data = await response.json();
+        console.log("data from response",data);
+        setError("");
+
+      } else {
+        setError("Data could not be fetched.");
+      }
+    } catch (error) {
+      setError("An error occurred while fetching.");
+    }
+    setQuestionSets(data.questionSetNames);
   }
-  const generateCode = () => {
-    // Replace this with your logic to generate code based on the selected set
-    // For now, let's just use the set as the code
-    setCode(selectedSet);
+  var resp="";
+  const generateCode = async() => {
+    try {
+      const response = await fetch(`https://erpsystembe.akashroy24.repl.co/setQuiz/${subject}/${selectedSet}`, {
+        method: "GET",});
+        console.log("Heyaa2");
+      if (response.ok) {
+         resp = await response.json();
+        console.log("Code from response",resp);
+        setError("");
+
+      } else {
+        setError("Code could not be fetched.");
+      }
+    } catch (error) {
+      setError("An error occurred while fetching code.");
+    }
+    setCode(resp.uuid);
   };
 
   return (
@@ -60,8 +92,10 @@ function RoutineBox({subject,time,year}) {
           <RxCrossCircled />
           </button>
           {/* Your modal content goes here */}
-          <p className='font-bold text-2xl text-gray-600 p-4 border-b-2 border-gray-400'>Choose Question Paper from available Sets </p>
-          <div>
+          <p className='font-bold text-2xl text-gray-600 p-4 border-b-2 border-gray-400'>
+          Choose Question Paper from available Sets
+        </p>
+                  <div>
               {questionSets.map((set) => (
                 <div
                   key={set}
@@ -77,7 +111,7 @@ function RoutineBox({subject,time,year}) {
             <div className='mt-4'>
               <input
                 type='text'
-                placeholder='Enter set number'
+                placeholder='Enter set name'
                 value={selectedSet}
                 onChange={(e) => setSelectedSet(e.target.value)}
                 className='p-2 border border-gray-300 rounded-md mr-2'

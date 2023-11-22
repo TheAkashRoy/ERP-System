@@ -56,7 +56,7 @@ const filteredData = data.filter(day => day.day.toLowerCase() === curentDay.toLo
           {filteredData?.length > 0 ? (
             filteredData.map(day => (
               <>
-                <h2 className='m-8  text-3xl'>{day.day}</h2>
+                <h2 className='m-5  text-3xl'>{day.day}</h2>
                 <div className='flex flex-wrap gap-4 p-4' key={day.id} data-aos="fade-up">
                   {day.schedules.map(schedule => (
                     <RoutineBox

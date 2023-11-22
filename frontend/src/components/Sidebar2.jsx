@@ -5,6 +5,7 @@ import {
   BsCalendarDate,
   BsBook,
 } from "react-icons/bs";
+import { GiNotebook } from "react-icons/gi";
 import { FiEdit } from "react-icons/fi";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -29,6 +30,10 @@ function Sidebar2() {
           <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center lg:ml-4">
             <BsBook className="hidden lg:block" />
             Subject Material
+          </li>
+          <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center lg:ml-4">
+            <GiNotebook className="hidden lg:block" />
+            Give Exam
           </li>
           {/* </Link> */}
           <Link to="/calendar">

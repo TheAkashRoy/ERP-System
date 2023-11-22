@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Studashboard from "./pages/Studashborad";
 import { StudCalendar } from "./pages/Calendar";
+import GiveExam from "./components/GiveExam";
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/student" element={<Studashboard />} />
         <Route path="/update-question" element={<QuestionForm />} />
         <Route path="/calendar" element={<StudCalendar />} />
+        <Route path="/give-exam" element={<GiveExam />} />
       </Routes>
     </>
   );

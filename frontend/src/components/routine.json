@@ -1,11 +1,11 @@
 [
     {
       "id": 1,
-      "day": "Monday",
+      "day": "Tuesday",
       "schedules": [
         {
           "id": 1,
-          "Subject": "Computer Science",
+          "Subject": "cs",
           "year": "Third Year",
           "classTime": "10:00 AM - 12:00 PM"
         },

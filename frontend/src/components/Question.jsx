@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 const QuestionForm = () => {
   const [formData, setFormData] = useState({
     subject: '',
-    setNo: '',
+    setName: '',
     questions: [
       { question: '', options: Array(2).fill('') },
       { question: '', options: Array(2).fill('') },
@@ -49,7 +49,7 @@ const QuestionForm = () => {
         const data = await response.json();
         console.log("data from response",data);
         setError("");
-
+        window.location.reload();
       } else {
         setError("Data could not be submitted.");
       }
@@ -82,8 +82,8 @@ const QuestionForm = () => {
           <label>Enter Set Name:</label>
           <input
             type="text"
-            name="setNo"
-            value={formData.setNo}
+            name="setName"
+            value={formData.setName}
             onChange={handleChange}
             placeholder='Enter Set Number'
             className='border-2 border-blue-900 border-b rounded-lg p-2 w-[90%] mb-5'

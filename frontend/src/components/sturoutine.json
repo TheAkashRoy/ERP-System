@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "day": "Wednesday",
+      "schedules": [
+        {
+          "id": 1,
+          "Subject": "English",
+          "teacher": "Mr. Ram Prasad",
+          "classroom": "L.G. 2.4",
+          "classTime": "10:00 AM - 12:00 PM"
+        },
+        {
+          "id": 2,
+          "Subject": "Computer",
+          "teacher": "Mr. Govind Verma",
+          "classroom": "L.G. 3.1",
+          "classTime": "10:00 AM - 12:00 PM"
+        },
+        {
+          "id": 3,
+          "Subject": "Maths",
+          "teacher": "Mr man",
+          "classroom": "IT lab",
+          "classTime": "10:00 AM - 12:00 PM"
+        }
+      ]
+    }
+  ]
+  

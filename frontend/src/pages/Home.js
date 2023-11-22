@@ -32,7 +32,7 @@ const LoginForm = () => {
         // setToken(data.token);
          setUsername(username);
         setError("");
-        location.reload();
+       window.location.reload();
       } else {
         setError("Login failed. Please check your username.");
       }
