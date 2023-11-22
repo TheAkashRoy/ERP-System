@@ -57,9 +57,12 @@ const [selectedOptions, setSelectedOptions] = useState({});
 name="code"
 placeholder='Enter Code here'
 onChange={(e) => setCode(e.target.value)}
+className='border-2 border-blue-900 border-b rounded-lg p-2 w-[45%] font-semibold'
 >
 </input>
-<button onClick={openModal}>Submit</button>
+<button onClick={openModal}
+className="p-2 text-white bg-blue-700 rounded-xl mt-5 w-[45%] shadow-lg font-semibold mb-5"
+>Submit</button>
 </div>
 </div>
 {isModalOpen && (
@@ -71,26 +74,39 @@ onChange={(e) => setCode(e.target.value)}
       >
       <RxCrossCircled />
       </button>
-      {/* Your modal content goes here */}
-      <p className='font-bold text-2xl text-gray-600 p-4 border-b-2 border-gray-400'>
+      <p className='font-bold text-2xl text-gray-600 p-4 border-b-2 border-gray-400 mb-10'>
       Questions
     </p>
-    {apiResponse.questions.map((question) => (
-      <div key={question._id} className="mb-4">
-        <p className="font-bold">{question.question}</p>
-        {question.options.map((option, index) => (
-          <div
-            key={index}
-            onClick={() => handleOptionClick(question._id, index)}
-            className={`cursor-pointer border p-4 m-2 ${
-              selectedOptions[question._id] === index ? 'bg-gray-300' : 'bg-white'
-            }`}
-          >
-            {option}
-          </div>
-        ))}
-      </div>
-    ))}
+    {apiResponse.questions ? (
+      apiResponse.questions.map((question) => (
+        <div key={question._id} className="mb-4 lex flex-col justify-start items-start">
+          <p className="font-semibold text-xl ml-4">{question.question}</p>
+          {question.options.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => handleOptionClick(question._id, index)}
+              className={`cursor-pointer border p-4 m-2 font-semibold rounded-xl ${
+                selectedOptions[question._id] === index ? 'bg-blue-100 border-2 border-blue-800 ' : 'bg-gray-100 border-2 border-gray-400'
+              }`}
+            >
+              {option}
+            </div>
+          ))}
+          
+        </div>
+      ))
+    ) : (
+      <p>Loading...</p>
+    )}
+    <div className="flex justify-center items-center">
+    <button
+      type="submit"
+      className="p-2 text-white bg-blue-700 rounded-xl mt-5 w-[30%] shadow-lg font-semibold mb-5"
+    >
+      Submit
+    </button>
+  </div>
+  
     </div>
   </div>
   
