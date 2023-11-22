@@ -31,10 +31,12 @@ function Sidebar2() {
             <BsBook className="hidden lg:block" />
             Subject Material
           </li>
+          <Link to="/give-exam">
           <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center lg:ml-4">
             <GiNotebook className="hidden lg:block" />
             Give Exam
           </li>
+          </Link>
           {/* </Link> */}
           <Link to="/calendar">
             <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center lg:ml-4">

@@ -106,7 +106,8 @@ const LoginForm = () => {
       />
       </label>
       <label className="font-semibold text-lg">
-        Designation:
+        Designation:<br/>
+        <div className="mr-4">
         <input
   type="radio"
   id="teacher"
@@ -114,9 +115,12 @@ const LoginForm = () => {
   value="Teacher"
   checked={designation === "Teacher"}
   onChange={() => setDesignation("Teacher")}
+  
 />
-<label htmlFor="teacher">Teacher</label>
+<label htmlFor="teacher ">Teacher</label>
+</div>
 
+<div>
 <input
   type="radio"
   id="student"
@@ -126,8 +130,9 @@ const LoginForm = () => {
   onChange={() => setDesignation("Student")}
 />
 <label htmlFor="student">Student</label>
-
+</div>
       </label>
+      
       <button type="submit" onClick={handleLogin} className="p-2 text-white bg-blue-700 rounded-xl w-[80%] shadow-lg font-semibold mb-5">
         Login
       </button>

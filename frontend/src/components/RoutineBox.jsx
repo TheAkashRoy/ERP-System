@@ -32,7 +32,7 @@ function RoutineBox({subject,time,year}) {
     try {
       const response = await fetch(`https://erpsystembe.akashroy24.repl.co/questions/${subject}`, {
         method: "GET",});
-      console.log("Heyaa");
+     
       if (response.ok) {
          data = await response.json();
         console.log("data from response",data);
@@ -51,7 +51,6 @@ function RoutineBox({subject,time,year}) {
     try {
       const response = await fetch(`https://erpsystembe.akashroy24.repl.co/setQuiz/${subject}/${selectedSet}`, {
         method: "GET",});
-        console.log("Heyaa2");
       if (response.ok) {
          resp = await response.json();
         console.log("Code from response",resp);
