@@ -55,7 +55,7 @@ function RoutineBox({subject,time,year}) {
          resp = await response.json();
         console.log("Code from response",resp);
         setError("");
-
+        closeModal();
       } else {
         setError("Code could not be fetched.");
       }

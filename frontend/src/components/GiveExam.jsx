@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react'
 import { RxCrossCircled } from "react-icons/rx";
 import Sidebar2 from './Sidebar2';
 import Swal from 'sweetalert2'
-
+import exam from '../assets/exam.jpg'
 function GiveExam() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [error, setError] = useState("");
@@ -81,6 +81,7 @@ const handleOptionClick = (questionId, optionId) => {
     <div className='flex flex-row '> 
     <Sidebar2/>
 <div className='flex flex-col gap-2 items-start justify-start bg-gray-100 p-10 w-full '>
+<img src={exam} alt="exam" className='w-[58%] h-[55%] mb-1'/>
 <input type="text"
 name="code"
 placeholder='Enter Code here'

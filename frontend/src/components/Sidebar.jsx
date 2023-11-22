@@ -13,10 +13,11 @@ function Sidebar() {
       </div></Link>
       <div className="p-4 mt-10 flex flex-col gap-3">
         <ul className="space-y-3 hover:cursor-pointer items-center">
+        <Link to="/teacher-profile">
           <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center ">
             <BsPerson className="hidden lg:block" />
             Profile
-          </li>
+          </li></Link>
           <Link to="/update-question">
             <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center ">
               <FiEdit className="hidden lg:block" />

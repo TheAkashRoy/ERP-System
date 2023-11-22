@@ -8,7 +8,7 @@ function Stuprofile() {
       <div className="flex flex-col lg:flex-row w-full gap-12 lg:gap-24 m-6 p-20 rounded-xl shadow-lg bg-white items-center">
       <div className='border-2 border-blue-800 p-5 rounded-xl'><IoPersonCircleOutline className='w-56 h-48 '/></div>
       
-      <div className="flex flex-col gap-6 font-bold text-lg ">
+      <div className="flex flex-col gap-4  text-lg ">
           <div className="flex flex-col gap-3 ml-5 lg:ml-0 text-blue-900 opacity-95 lg:mt-3">
             <h2 className='text-3xl'>Name: <span className='font-semibold text-2xl text-gray-600'>Anmol Reshi</span> </h2>
             <h3 className='text-3xl'>Enrollment no: <span className='font-semibold text-2xl text-gray-600'> 120210020190010</span></h3>
@@ -30,22 +30,22 @@ function Stuprofile() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-slate-500">
+                <td className="border border-slate-500 p-2">
                   Software Engineering
                 </td>
-                <td className="border border-slate-500">3</td>
+                <td className="border border-slate-500 p-2 ">3</td>
               </tr>
               <tr>
-                <td className="border border-slate-500">
+                <td className="border border-slate-500 p-2">
                   Database Management System
                 </td>
-                <td className="border border-slate-500">3</td>
+                <td className="border border-slate-500 p-2">3</td>
               </tr>
               <tr>
-                <td className="border border-slate-500">
+                <td className="border border-slate-500 p-2">
                   Object Oriented Programming
                 </td>
-                <td className="border border-slate-500">2</td>
+                <td className="border border-slate-500 p-2">2</td>
               </tr>
             </tbody>
           </table>
