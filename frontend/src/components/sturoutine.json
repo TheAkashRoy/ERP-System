@@ -1,30 +1,97 @@
 [
-    {
+  {
       "id": 1,
       "day": "Wednesday",
       "schedules": [
-        {
-          "id": 1,
-          "Subject": "English",
-          "teacher": "Mr. Ram Prasad",
-          "classroom": "L.G. 2.4",
-          "classTime": "10:00 AM - 12:00 PM"
-        },
-        {
-          "id": 2,
-          "Subject": "Computer",
-          "teacher": "Mr. Govind Verma",
-          "classroom": "L.G. 3.1",
-          "classTime": "10:00 AM - 12:00 PM"
-        },
-        {
-          "id": 3,
-          "Subject": "Maths",
-          "teacher": "Mr man",
-          "classroom": "IT lab",
-          "classTime": "10:00 AM - 12:00 PM"
-        }
+          {
+              "id": 1,
+              "Subject": "English",
+              "teacher": "Mr. Ram Prasad",
+              "classroom": "L.G. 2.4",
+              "classTime": "10:00 AM - 12:00 PM"
+          },
+          {
+              "id": 2,
+              "Subject": "Computer",
+              "teacher": "Mr. Govind Verma",
+              "classroom": "L.G. 3.1",
+              "classTime": "10:00 AM - 12:00 PM"
+          },
+          {
+              "id": 3,
+              "Subject": "Maths",
+              "teacher": "Mr. Man",
+              "classroom": "IT lab",
+              "classTime": "10:00 AM - 12:00 PM"
+          }
       ]
-    }
-  ]
-  
+  },
+  {
+      "id": 2,
+      "day": "Thursday",
+      "schedules": [
+          {
+              "id": 1,
+              "Subject": "Data Structures",
+              "teacher": "Mr. Ram Gopal Verma",
+              "classroom": "Room 4.2",
+              "classTime": "10:00 AM - 11:00 AM"
+          },
+          {
+              "id": 2,
+              "Subject": "English",
+              "teacher": "Mrs. Shrabani Paul",
+              "classroom": "DBMS lab",
+              "classTime": "11:00 AM - 12:00 PM"
+          },
+          {
+              "id": 3,
+              "Subject": "Signals & System",
+              "teacher": "Mr. Kunal Pathak",
+              "classroom": "Room 5.1",
+              "classTime": "12:00 PM - 1:00 PM"
+          },
+          {
+              "id": 4,
+              "Subject": "Software Engineering",
+              "teacher": "Mr. Software Engineer",
+              "classroom": "Room 3.3",
+              "classTime": "1:00 PM - 2:00 PM"
+          }
+      ]
+  },
+  {
+      "id": 3,
+      "day": "Friday",
+      "schedules": [
+          {
+              "id": 1,
+              "Subject": "Subject1",
+              "teacher": "Teacher1",
+              "classroom": "Room 1.1",
+              "classTime": "10:00 AM - 11:00 AM"
+          },
+          {
+              "id": 2,
+              "Subject": "Subject2",
+              "teacher": "Teacher2",
+              "classroom": "Room 2.2",
+              "classTime": "11:00 AM - 12:00 PM"
+          },
+          {
+              "id": 3,
+              "Subject": "Subject3",
+              "teacher": "Teacher3",
+              "classroom": "Room 3.3",
+              "classTime": "12:00 PM - 1:00 PM"
+          },
+          {
+              "id": 4,
+              "Subject": "Subject4",
+              "teacher": "Teacher4",
+              "classroom": "Room 4.4",
+              "classTime": "1:00 PM - 2:00 PM"
+          }
+      ]
+  }
+]

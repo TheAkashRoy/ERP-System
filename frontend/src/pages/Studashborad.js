@@ -20,7 +20,7 @@ const filteredData = data.filter(day => day.day.toLowerCase() === curentDay.toLo
     <div className='flex flex-row gap-1'> 
         <Sidebar2/>
         <div className='p-10 bg-gray-100 w-full '>    
-        <h1 className='font-bold text-4xl text-gray-600 p-4 border-b-2 border-gray-400'>{formattedDate}</h1>
+        <h1 className='font-bold text-4xl text-blue-800 p-4 border-b-2 border-gray-400'>{formattedDate}</h1>
         <div >
             
           {filteredData?.length > 0 ? (

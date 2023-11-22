@@ -1,27 +1,77 @@
 [
-    {
-      "id": 1,
-      "day": "Wednesday",
-      "schedules": [
-        {
-          "id": 1,
-          "Subject": "cs",
-          "year": "Third Year",
-          "classTime": "10:00 AM - 12:00 PM"
-        },
-        {
-          "id": 2,
-          "Subject": "Computer Science Pro",
-          "year": "Third Year",
-          "classTime": "01:00 PM - 02:00 PM"
-        },
-        {
-          "id": 3,
-          "Subject": "UnComputer Science",
-          "year": "Third Year",
-          "classTime": "03:00 AM - 04:00 PM"
-        }
-      ]
-    }
-  ]
-  
+  {
+    "day": "Thursday",
+    "schedules": [
+      {
+        "Subject": "Data Structure",
+        "year": "Third Year",
+        "classTime": "10:00 AM - 11:00 AM"
+      },
+      {
+        "Subject": "Algorithms",
+        "year": "Second Year",
+        "classTime": "11:00 AM - 12:00 PM"
+      },
+      {
+        "Subject": "Machine Learning",
+        "year": "Second Year",
+        "classTime": "01:00 PM - 02:00 PM"
+      },
+      {
+        "Subject": "Software Engineering",
+        "year": "Third Year",
+        "classTime": "03:00 PM - 04:00 PM"
+      }
+    ]
+  },
+  {
+    "day": "Friday",
+    "schedules": [
+      {
+        "Subject": "Data Structure",
+        "year": "Second Year",
+        "classTime": "10:00 AM - 11:00 AM"
+      },
+      {
+        "Subject": "Algorithms",
+        "year": "Second Year",
+        "classTime": "11:00 AM - 12:00 PM"
+      },
+      {
+        "Subject": "Graphic Design",
+        "year": "First",
+        "classTime": "01:00 PM - 02:00 PM"
+      },
+      {
+        "Subject": "Project",
+        "year": "Fourth",
+        "classTime": "03:00 PM - 04:00 PM" 
+      }
+    ]
+  },
+  {
+    "day": "Monday",
+    "schedules": [
+      {
+        "Subject": "Project",
+        "year": "Fourth",
+        "classTime": "10:00 AM - 11:00 AM" 
+      },
+      {
+        "Subject": "Algorithms",
+        "year": "Second Year",
+        "classTime": "11:00 AM - 12:00 PM"
+      },
+      {
+        "Subject": "Machine Learning",
+        "year": "Third Year",
+        "classTime": "01:00 PM - 02:00 PM"
+      },
+      {
+        "Subject": "Software Engineering",
+        "year": "Third Year",
+        "classTime": "03:00 PM - 04:00 PM"
+      }
+    ]
+  }
+]

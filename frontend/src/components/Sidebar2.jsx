@@ -22,7 +22,7 @@ function Sidebar2() {
         <ul className="space-y-3 hover:cursor-pointer items-center">
         <Link to="/student-profile">
           <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center lg:ml-4">
-            <BsPerson className="hidden lg:block" />
+            <BsPerson className="hidden lg:block text-semibold" />
             Profile
           </li></Link>
           <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center lg:ml-4">
