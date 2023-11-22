@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 const QuestionForm = () => {
+  const [answer, setAnswer] = useState(''); 
+  
   const [formData, setFormData] = useState({
     subject: '',
     setName: '',
@@ -31,15 +33,22 @@ const QuestionForm = () => {
     updatedQuestions[questionIndex].options[optionIndex] = value;
     setFormData({ ...formData, questions: updatedQuestions });
   };
+  const handleCorrectOptionChange = (e, questionIndex) => {
+    const value = e.target.value;
+    const updatedAnswer = answer + value;
+    setAnswer(updatedAnswer);
+  };
 
   const handleSubmit = async(e) => {
     e.preventDefault();
     // You can handle the submission of the form data here, e.g., send it to a server.
-    console.log('Form data:', formData);
+    const updatedFormData = { ...formData, answer };
+    console.log('Form data:', updatedFormData);
+    //console.log('Form data:', formData);
     try {
       const response = await fetch("https://erpsystembe.akashroy24.repl.co/insertQS", {
         method: "POST",
-        body: JSON.stringify(formData),
+        body: JSON.stringify(updatedFormData),
         headers: {
           "Content-Type": "application/json",
         },
@@ -113,6 +122,16 @@ const QuestionForm = () => {
                   />
                 </div>
               ))}
+              <div>
+                  <label>Correct Option:</label>
+                  <input
+                    type='text'
+                    value={answer[questionIndex] || ''}
+                    onChange={(e) => handleCorrectOptionChange(e, questionIndex)}
+                    placeholder={`Enter Correct Option for Question ${questionIndex + 1}`}
+                    className='border-2 border-blue-900 border-b rounded-lg p-2 w-[90%]'
+                  />
+                </div>
             </div>
           ))}
         </div>
