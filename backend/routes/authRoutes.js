@@ -1,43 +1,56 @@
 const express = require("express");
 const router = express.Router();
 const { verifyToken } = require("../middlewares/auth"); 
+const User = require("../models/users");
+const jwt = require("jsonwebtoken");
 
-router.post("/register", (req, res) => {
-    const { username, password } = req.body;
-  
-    if (users.some((user) => user.username === username)) {
+router.post("/register", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const existingUser = await User.findOne({ username });
+
+    if (existingUser) {
       return res.status(400).json({ message: "Username already taken" });
     }
 
-    const newUser = { id: users.length + 1, username, password };
-    users.push(newUser);
-  
+    const newUser = new User({ username, password });
+    await newUser.save();
+
     res
       .status(201)
       .json({ message: "User registered successfully", user: newUser });
-  });
-
-router.post("/login", (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find(
-    (u) => u.username === username && u.password === password
-  );
-
-  if (!user) {
-    return res.status(401).json({ message: "Invalid username or password" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
   }
+});
 
-  const token = jwt.sign(
-    { userId: user.id, username: user.username },
-    secretKey,
-    { expiresIn: "1800s" }
-  );
-  console.log(users);
-  res.json({ message: "Login successful", token });
+const secretKey = "enigma";
+
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ username, password });
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid username or password" });
+    }
+
+    const token = jwt.sign(
+      { userId: user.id, username: user.username },
+      secretKey,
+      { expiresIn: "1800s" }
+    );
+
+    res.json({ message: "Login successful", token });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
 });
 
 router.get("/protected", verifyToken, (req, res) => {
-  console.log(req)
+  // console.log(req)
   res.json({
     message: "accessing the protected route",
     user: req.user,
