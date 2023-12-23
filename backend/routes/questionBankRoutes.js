@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const QuestionBank = require('../models/questionBank');
+const questionBank = require('../models/questionBank');
 
 router.post('/insertQS', async (req, res) => {
   try {
@@ -22,7 +22,7 @@ router.post('/insertQS', async (req, res) => {
   }
 });
 
-router.get('/questions/:subject', async (req, res) => {
+router.get('/:subject', async (req, res) => {
   const subject = req.params.subject;
 
   try {

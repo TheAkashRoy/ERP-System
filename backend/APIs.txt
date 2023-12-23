@@ -1,0 +1,18 @@
+/home  -> test 
+
+- Auth 
+/auth/register
+/auth/login
+/auth/protected
+
+- Question Bank
+/questionBank/insertQS
+/questionBank/:subject
+
+- Quiz
+/quiz/setQuiz/:subject/:setName
+/quiz/getQS/:code
+
+- teachers
+/teachers/insert
+/teachers/insert
