@@ -15,14 +15,16 @@ function Sidebar2() {
     <Link to="/student">
       <div className="flex flex-col justify-center items-center gap-3 text-lg md:text-2xl mt-20">
         <BsPersonCircle className="text-7xl text-[#787486]" />
-        <h1 className="text-center">Student name</h1>
+        <h1 className="text-center">Anmol Reshi</h1>
       </div></Link>
+      
       <div className="p-4 mt-10 flex flex-col gap-3">
         <ul className="space-y-3 hover:cursor-pointer items-center">
+        <Link to="/student-profile">
           <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center lg:ml-4">
-            <BsPerson className="hidden lg:block" />
+            <BsPerson className="hidden lg:block text-semibold" />
             Profile
-          </li>
+          </li></Link>
           <li className="p-2 text-lg text-[#787486] group-hover:text-gray-900 flex flex-row font-semibold gap-2 items-center lg:ml-4">
             <AiOutlineSchedule className="hidden lg:block" />
             Full Routine

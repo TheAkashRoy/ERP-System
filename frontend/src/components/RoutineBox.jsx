@@ -55,7 +55,7 @@ function RoutineBox({subject,time,year}) {
          resp = await response.json();
         console.log("Code from response",resp);
         setError("");
-
+        closeModal();
       } else {
         setError("Code could not be fetched.");
       }
@@ -117,7 +117,7 @@ function RoutineBox({subject,time,year}) {
               />
               <button
                 onClick={generateCode}
-                className='bg-blue-500 text-white p-2 rounded-md'
+                className='bg-blue-800 text-white p-2 rounded-md'
               >
                 Generate Code
               </button>
